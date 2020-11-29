@@ -1,0 +1,12 @@
+# ignore data files
+data/*
+
+# ignore wandb files
+wandb
+wandb/*
+
+#
+__pycache__
+__pycache__/*
+.idea
+.idea/*
