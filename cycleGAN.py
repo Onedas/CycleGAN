@@ -206,8 +206,13 @@ class CycleGANModel():
                                    "valid_loss_Da": valid_loss_Das / (idx + 1),
                                    "valid_loss_Db": valid_loss_Dbs / (idx + 1),
                                    })
+            # model save            
+            torch.save(self, opt.save_path + '/{}.pth'.format(epoch))
+
             # image log
             if self.use_wandb:
+            	wandb.save(opt.save_path + '/{}.pth'.format(epoch))
+                
                 with torch.no_grad():
                     id_A = self.G_ba(valid_A.to(self.device))
                     id_B = self.G_ab(valid_B.to(self.device))
