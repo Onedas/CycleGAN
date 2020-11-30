@@ -211,7 +211,7 @@ class CycleGANModel():
 
             # image log
             if self.use_wandb:
-            	wandb.save(opt.save_path + '/{}.pth'.format(epoch))
+                wandb.save(opt.save_path + '/{}.pth'.format(epoch))
                 
                 with torch.no_grad():
                     id_A = self.G_ba(valid_A.to(self.device))
